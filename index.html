@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership Project</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Playfair+Display:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/eef85430e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="login bg-white">
+      <div class="login_photo">
+        <h3 class="text-center text-white py-5">SIGN IN</h3>
+      </div>
+
+      <div class="login-content">
+        <form>
+          <div class="form-group">
+            <label>User name</label>
+            <input
+              class="username"
+              autocomplete="off"
+              type="text"
+              name="username"
+              id="username"
+              required
+            />
+            <br /><br />
+            <span id="name_warning" class="badge badge-warning ml-5"></span>
+          </div>
+          <br />
+          <div class="form-group">
+            <label> Password</label>
+            <input
+              class="password ml-2"
+              type="password"
+              name="password"
+              id="password"
+              required
+            />
+            <br />
+            <span id="pw_warning" class="badge badge-warning ml-5"></span>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" class="check" /> Remember me</label>
+            <a href="" class="btn_forgot">Forgot Password?</a>
+          </div>
+          <a href="#" id="login" class="btn-login">Login</a>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

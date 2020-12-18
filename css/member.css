@@ -1,0 +1,66 @@
+* {
+  font-family: "Palanquin", sans-serif;
+  color: #7b7b7b;
+}
+.members h1 {
+  font-weight: 300;
+  font-size: 40px;
+}
+.members label {
+  font-size: 20px;
+}
+
+.member_content input[type="text"] {
+  border-radius: 10px;
+  border-color: yellowgreen;
+  height: 50px;
+}
+.member_content .select {
+  border-radius: 10px;
+  border-color: yellowgreen;
+  height: 50px;
+}
+
+.member_content .btn-add {
+  text-decoration: none;
+  outline: none;
+  border-radius: 8px;
+  border: 1px transparent;
+  margin-top: 40px;
+  color: rgb(240, 236, 236);
+  width: 120px;
+  height: 48px;
+  text-align: center;
+  background-image: linear-gradient(to top, #63a158 0%, #4c897f 100%);
+  transition: all 500ms ease-out;
+  font-size: 18px;
+}
+.member_list h4 {
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+.table_head {
+  background-color: #e5f4ee;
+}
+.edit_col,
+.delete_col {
+  border: none !important;
+}
+.btn_edit,
+.btn_delete {
+  outline: none !important;
+  text-decoration: none !important;
+  border: 1px transparent;
+  border-radius: 50px;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  color: #000;
+}
+.btn_edit {
+  background-color: #d0e2f2;
+}
+.btn_delete {
+  background-color: #e7b8af;
+}
