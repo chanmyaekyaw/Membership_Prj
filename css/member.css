@@ -19,6 +19,8 @@
   border-radius: 10px;
   border-color: yellowgreen;
   height: 50px;
+  font-size: 20px;
+  color: #7b7b7b;
 }
 
 .member_content .btn-add {
