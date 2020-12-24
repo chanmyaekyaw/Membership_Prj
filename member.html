@@ -56,7 +56,7 @@
         <div class="col-md-3">
           <label>Team</label>
           <select class="select form-control" id="team" name="team" required>
-            <option>Choose Team&hellip;</option>
+            <option disabled>Choose Team&hellip;</option>
             <option>FE</option>
             <option>BE</option>
             <option>Database</option>
@@ -64,14 +64,13 @@
           </select>
         </div>
         <div class="col-md-2">
-          <button
-            href=""
+          <input
+            onclick="onAddOrUpdateButtonClicked(event)"
+            type="button"
             id="addButton"
             class="btn-add btn-lg"
-            onclick="addMember()"
-          >
-            + &emsp; Add
-          </button>
+            value="+  Add"
+          />
         </div>
       </div>
       <div class="member_list row mt-5 mb-3">

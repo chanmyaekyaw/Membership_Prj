@@ -49,8 +49,8 @@
 .delete_col {
   border: none !important;
 }
-.btn_edit,
-.btn_delete {
+#edit_btn,
+.delete_btn {
   outline: none !important;
   text-decoration: none !important;
   border: 1px transparent;
@@ -60,9 +60,9 @@
   text-align: center;
   color: #000;
 }
-.btn_edit {
-  background-color: #d0e2f2;
+#edit_btn {
+  background-color: #abc6dd;
 }
-.btn_delete {
+.delete_btn {
   background-color: #e7b8af;
 }

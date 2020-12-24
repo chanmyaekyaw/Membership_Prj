@@ -2,7 +2,17 @@ var username = document.getElementById("username");
 var memberName = document.getElementById("name");
 var team = document.getElementById("team");
 var tableHead = document.getElementById("tableHead");
+var selectedRow = null;
+
 tableHead.style.visibility = "hidden";
+
+var onAddOrUpdateButtonClicked = (event) => {
+  if (event.target.value === "+  Add") {
+    addMember();
+  } else {
+    updateMember();
+  }
+};
 var addMember = () => {
   var usernameValue = username.value;
   var nameValue = memberName.value;
@@ -15,12 +25,8 @@ var addMember = () => {
   if (usernameValue == "" || nameValue == "" || teamValue == "") {
     alert("Please Fill All");
   } else {
-    // if (!letters.test(nameValue)) {
-    //   name_warning = "Must be letters!";
-    // } else {
     tableHead.style.visibility = "visible";
 
-    name_warning = "";
     username.value = "";
     memberName.value = "";
     team.value = "";
@@ -47,31 +53,61 @@ var addMember = () => {
     var editBtn = document.createElement("input");
     editBtn.type = "button";
     editBtn.value = "Edit";
-    editBtn.className = "edit_btn";
-    editBtn.style.borderRadius = "50px";
-    editBtn.style.border = "1px transparent";
-    editBtn.style.width = "80px";
-    editBtn.style.height = "30px";
-    editBtn.style.textAlign = "center";
-    editBtn.style.color = "#000";
-    editBtn.style.backgroundColor = "#d0e2f2";
-    editBtn.setAttribute("onclick", "editRow(this)");
+    editBtn.id = "edit_btn";
+    editBtn.setAttribute("onclick", "editRow(event)");
     editCell.appendChild(editBtn);
 
     deleteCell.className = "table-bordered";
     var deleteBtn = document.createElement("input");
     deleteBtn.type = "button";
-    deleteBtn.value = "Delete";
     deleteBtn.className = "delete_btn";
-    deleteBtn.style.borderRadius = "50px";
-    deleteBtn.style.border = "1px transparent";
-    deleteBtn.style.width = "80px";
-    deleteBtn.style.height = "30px";
-    deleteBtn.style.textAlign = "center";
-    deleteBtn.style.color = "#000";
-    deleteBtn.style.backgroundColor = "#e7b8af";
-    deleteBtn.setAttribute("onclick", "deleteRow(this)");
+    deleteBtn.value = "Delete";
+    editBtn.className = "delete_btn";
+    deleteBtn.setAttribute("onclick", "deleteRow(event)");
     deleteCell.appendChild(deleteBtn);
   }
   // }
+};
+
+var editRow = (event) => {
+  var rowUsername =
+    event.target.parentElement.parentElement.firstChild.innerHTML;
+  var rowName =
+    event.target.parentElement.parentElement.firstChild.nextSibling.innerHTML;
+  var rowTeam =
+    event.target.parentElement.parentElement.firstChild.nextSibling.nextSibling
+      .innerHTML;
+
+  username.value = rowUsername;
+  memberName.value = rowName;
+  team.value = rowTeam;
+
+  var updateText = "Update";
+  var add = document.getElementById("addButton");
+  add.value = updateText;
+  selectedRow = event.target.parentElement.parentElement;
+};
+var updateMember = () => {
+  var usernameValue = username.value;
+  var nameValue = memberName.value;
+  var teamValue = team.value;
+
+  if (usernameValue == "" || nameValue == "" || teamValue == "") {
+    alert("Please Fill All");
+  } else {
+    tableHead.style.visibility = "visible";
+
+    username.value = "";
+    memberName.value = "";
+    team.value = "";
+
+    selectedRow.firstChild.innerHTML = usernameValue;
+    selectedRow.firstChild.nextSibling.innerHTML = nameValue;
+    selectedRow.firstChild.nextSibling.nextSibling.innerHTML = teamValue;
+  }
+};
+
+var deleteRow = (event) => {
+  selectedRow = event.target.parentElement.parentElement;
+  selectedRow.remove();
 };
