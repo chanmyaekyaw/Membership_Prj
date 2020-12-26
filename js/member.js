@@ -1,11 +1,56 @@
 var username = document.getElementById("username");
+username.addEventListener("keyup", username_validation);
+
 var memberName = document.getElementById("name");
+memberName.addEventListener("keyup", name_validation);
+
 var team = document.getElementById("team");
 var tableHead = document.getElementById("tableHead");
 var selectedRow = null;
 
 tableHead.style.visibility = "hidden";
 
+function username_validation() {
+  var usernameValue = username.value.trim();
+
+  var username_warning = document.getElementById("username_warning");
+
+  username_warning.innerHTML = "";
+
+  var expr = /^[a-zA-Z0-9_]{6,20}$/;
+  if (usernameValue == null || usernameValue == "") {
+    username_warning.innerHTML = "";
+    username.classList.remove("is-invalid");
+  } else if (!expr.test(usernameValue)) {
+    username_warning.innerHTML =
+      "Only Alphabets, Numbers and Underscore and between 6 to 20 characters!";
+    username.classList.add("is-invalid");
+    username.classList.remove("is-valid");
+  } else if (expr.test(usernameValue)) {
+    username.classList.remove("is-invalid");
+  } else {
+  }
+}
+function name_validation() {
+  var nameValue = memberName.value.trim();
+
+  var name_warning = document.getElementById("name_warning");
+
+  name_warning.innerHTML = "";
+
+  var expr = /^[a-zA-Z][a-zA-Z\s]*$/;
+  if (nameValue == null || nameValue == "") {
+    name_warning.innerHTML = "";
+    memberName.classList.remove("is-invalid");
+  } else if (!expr.test(nameValue)) {
+    name_warning.innerHTML = "Only letters with space!";
+    memberName.classList.add("is-invalid");
+    memberName.classList.remove("is-valid");
+  } else if (expr.test(nameValue)) {
+    memberName.classList.remove("is-invalid");
+  } else {
+  }
+}
 var onAddOrUpdateButtonClicked = (event) => {
   if (event.target.value === "+  Add") {
     addMember();
@@ -13,14 +58,11 @@ var onAddOrUpdateButtonClicked = (event) => {
     updateMember();
   }
 };
+
 var addMember = () => {
   var usernameValue = username.value;
   var nameValue = memberName.value;
   var teamValue = team.value;
-
-  var letters = "/^[a-zA-Z]+$/";
-  var name_warning = document.getElementById("name_warning");
-  name_warning = "";
 
   if (usernameValue == "" || nameValue == "" || teamValue == "") {
     alert("Please Fill All");
@@ -66,7 +108,6 @@ var addMember = () => {
     deleteBtn.setAttribute("onclick", "deleteRow(event)");
     deleteCell.appendChild(deleteBtn);
   }
-  // }
 };
 
 var editRow = (event) => {
