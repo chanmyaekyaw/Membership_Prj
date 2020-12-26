@@ -128,8 +128,8 @@ body {
 }
 #name_warning,
 #pw_warning {
-  color: rgba(226, 14, 14, 0.486);
-  background-color: rgba(240, 232, 186, 0.562);
+  color: rgba(226, 14, 14, 0.842);
+  background-color: rgba(240, 232, 186, 0.815);
   font-family: "Balsamiq Sans", cursive;
   font-weight: 400;
   font-size: 14px;

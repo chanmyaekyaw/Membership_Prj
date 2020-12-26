@@ -145,6 +145,10 @@ var updateMember = () => {
     selectedRow.firstChild.innerHTML = usernameValue;
     selectedRow.firstChild.nextSibling.innerHTML = nameValue;
     selectedRow.firstChild.nextSibling.nextSibling.innerHTML = teamValue;
+
+    var addTextAgain = "+ Add";
+    var add = document.getElementById("addButton");
+    add.value = addTextAgain;
   }
 };
 
