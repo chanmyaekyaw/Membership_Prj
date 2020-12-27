@@ -96,15 +96,22 @@ var addMember = () => {
     editBtn.type = "button";
     editBtn.value = "Edit";
     editBtn.id = "edit_btn";
+    editBtn.className = "delete_btn";
     editBtn.setAttribute("onclick", "editRow(event)");
     editCell.appendChild(editBtn);
 
     deleteCell.className = "table-bordered";
-    var deleteBtn = document.createElement("input");
-    deleteBtn.type = "button";
+    var deleteBtn = document.createElement("button");
+
+    const delIcon = document.createElement("i");
+    delIcon.className = "fa fa-trash-o";
+    deleteBtn.appendChild(delIcon);
+
+    const delText = document.createElement("span");
+    delText.innerHTML = "&nbsp;Delete";
+    deleteBtn.appendChild(delText);
+
     deleteBtn.className = "delete_btn";
-    deleteBtn.value = "Delete";
-    editBtn.className = "delete_btn";
     deleteBtn.setAttribute("onclick", "deleteRow(event)");
     deleteCell.appendChild(deleteBtn);
   }
@@ -153,6 +160,14 @@ var updateMember = () => {
 };
 
 var deleteRow = (event) => {
-  selectedRow = event.target.parentElement.parentElement;
+  selectedRow = getRow(event.target);
   selectedRow.remove();
+};
+
+const getRow = (el) => {
+  if (el.nodeName === "TR" || el.nodeName === "tr") {
+    return el;
+  } else {
+    return getRow(el.parentElement);
+  }
 };
