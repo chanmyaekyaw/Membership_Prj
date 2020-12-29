@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member</title>
+    <link rel="stylesheet" href="./css/member.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/eef85430e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="members container">
+      <h1 class="text-center my-3">YTU SE Team Membership</h1>
+      <div class="member_content row mb-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            autocomplete="off"
+            required
+          />
+          <span id="username_warning" class="badge badge-warning"></span>
+        </div>
+        <div class="col-md-3">
+          <label>Name</label>
+          <input
+            type="text"
+            name="nameOfM"
+            id="name"
+            class="form-control"
+            required
+          />
+          <span id="name_warning" class="badge badge-warning"></span>
+        </div>
+        <div class="col-md-3">
+          <label>Team</label>
+          <select class="select form-control" id="team" name="team" required>
+            <option disabled>Choose Team&hellip;</option>
+            <option>All</option>
+            <option>FE</option>
+            <option>BE</option>
+            <option>Database</option>
+            <option>Desktop</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input
+            onclick="onAddOrUpdateButtonClicked(event)"
+            type="button"
+            id="addButton"
+            class="btn-add btn-lg"
+            value="+  Add"
+          />
+        </div>
+      </div>
+      <div class="member_list row mt-5 mb-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <h4>List of Members</h4>
+          <hr color="#C0DDB5" class="mt-4 mb-4" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <table
+            class="table table-bordered"
+            id="table"
+            style="border-right: none; border-bottom: none"
+          >
+            <tr
+              class="table_head"
+              id="tableHead"
+              style="border-bottom: none !important"
+            >
+              <th style="width: 40%">Username</th>
+              <th style="width: 40%">Name</th>
+              <th style="width: 20%">Team</th>
+            </tr>
+            <tbody id="tbody" style="border-top: none"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./js/member2.js"></script>
+  </body>
+</html>

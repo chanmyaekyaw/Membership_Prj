@@ -54,15 +54,17 @@
   outline: none !important;
   text-decoration: none !important;
   border: 1px transparent;
-  border-radius: 50px;
-  width: 80px;
+  border-radius: 10px;
   height: 30px;
   text-align: center;
-  color: #000;
+  color: #4d4c4c;
+}
+i {
+  color: #ffffffe3;
 }
 #edit_btn {
-  background-color: #abc6dd;
+  background-color: rgba(22, 117, 65, 0.76);
 }
 .delete_btn {
-  background-color: #e7b8af;
+  background-color: rgba(175, 29, 29, 0.76);
 }

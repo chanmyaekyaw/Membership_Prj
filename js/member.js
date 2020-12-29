@@ -153,7 +153,7 @@ var updateMember = () => {
     selectedRow.firstChild.nextSibling.innerHTML = nameValue;
     selectedRow.firstChild.nextSibling.nextSibling.innerHTML = teamValue;
 
-    var addTextAgain = "+ Add";
+    var addTextAgain = "+  Add";
     var add = document.getElementById("addButton");
     add.value = addTextAgain;
   }
@@ -163,7 +163,6 @@ var deleteRow = (event) => {
   selectedRow = getRow(event.target);
   selectedRow.remove();
 };
-
 const getRow = (el) => {
   if (el.nodeName === "TR" || el.nodeName === "tr") {
     return el;
