@@ -11,12 +11,59 @@ var data = [
   },
 ];
 var tbody = document.getElementById("tbody");
+
 var userInput = document.getElementById("username");
+userInput.addEventListener("keyup", username_validation);
+
 var nameInput = document.getElementById("name");
+nameInput.addEventListener("keyup", name_validation);
+
 var teamInput = document.getElementById("team");
 var addOrUpdateButton = document.getElementById("addButton");
 
 var team = document.getElementById("team");
+
+function username_validation() {
+  const usernameValue = userInput.value.trim();
+
+  const username_warning = document.getElementById("username_warning");
+
+  username_warning.innerHTML = "";
+
+  const expr = /^[a-zA-Z0-9_]{6,20}$/;
+  if (usernameValue == null || usernameValue == "") {
+    username_warning.innerHTML = "";
+    userInput.classList.remove("is-invalid");
+  } else if (!expr.test(usernameValue)) {
+    username_warning.innerHTML =
+      "Only Alphabets, Numbers and Underscore and between 6 to 20 characters!";
+    userInput.classList.add("is-invalid");
+    userInput.classList.remove("is-valid");
+  } else if (expr.test(usernameValue)) {
+    userInput.classList.remove("is-invalid");
+  } else {
+  }
+}
+function name_validation() {
+  const nameValue = nameInput.value.trim();
+
+  const name_warning = document.getElementById("name_warning");
+
+  name_warning.innerHTML = "";
+
+  const expr = /^[a-zA-Z][a-zA-Z\s]*$/;
+  if (nameValue == null || nameValue == "") {
+    name_warning.innerHTML = "";
+    nameInput.classList.remove("is-invalid");
+  } else if (!expr.test(nameValue)) {
+    name_warning.innerHTML = "Only letters with space!";
+    nameInput.classList.add("is-invalid");
+    nameInput.classList.remove("is-valid");
+  } else if (expr.test(nameValue)) {
+    nameInput.classList.remove("is-invalid");
+  } else {
+  }
+}
 
 var onAddOrUpdateButtonClicked = (event) => {
   const usernameValue = userInput.value.trim();
@@ -39,7 +86,7 @@ const addMember = () => {
   const teamValue = teamInput.value.trim();
   const oldMember = data.find((mem) => mem.username === usernameValue);
   if (oldMember) {
-    alert("Member with username " + userText + " already exits!");
+    alert("Member with username '" + usernameValue + "' already exits!");
   } else {
     data.push({
       username: usernameValue,
@@ -52,8 +99,6 @@ const addMember = () => {
   nameInput.value = "";
   teamInput.value = "";
 };
-
-const updateMember = () => {};
 
 const extractSelectedUsername = (event) => {
   var btnClicked = null;
@@ -74,6 +119,34 @@ const editRow = (event) => {
   addOrUpdateButton.value = "Update";
 };
 
+const updateMember = () => {
+  const usernameValue = userInput.value.trim();
+  const nameValue = nameInput.value.trim();
+  const teamValue = teamInput.value.trim();
+  const oldMemberIndex = data.findIndex(
+    (mem) => mem.username === usernameValue
+  );
+  if (oldMemberIndex !== -1) {
+    data.splice(oldMemberIndex, 1, {
+      username: usernameValue,
+      fullname: nameValue,
+      team: teamValue,
+    });
+    displayData();
+    userInput.value = "";
+    nameInput.value = "";
+    teamInput.value = "";
+    addOrUpdateButton.value = "+ Add";
+  }
+};
+
+const deleteRow = (event) => {
+  const selectedUsername = extractSelectedUsername(event);
+  if (confirm("Are you sure to delete the member: " + selectedUsername + "?")) {
+    data = data.filter((mem) => mem.username !== selectedUsername);
+    displayData();
+  }
+};
 const getRowHTML = (mem) => {
   return `
       <tr>
