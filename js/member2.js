@@ -55,7 +55,24 @@ const addMember = () => {
 
 const updateMember = () => {};
 
-const selectedUsername = (event) => {};
+const extractSelectedUsername = (event) => {
+  var btnClicked = null;
+  if (event.target.nodeName === "i" || event.target.nodeName === "I") {
+    btnClicked = event.target.parentElement;
+  } else {
+    btnClicked = event.target;
+  }
+  return btnClicked.getAttribute("mem-username");
+};
+
+const editRow = (event) => {
+  const selectedUsername = extractSelectedUsername(event);
+  const selectedMember = data.find((mem) => mem.username === selectedUsername);
+  userInput.value = selectedMember.username;
+  nameInput.value = selectedMember.fullname;
+  teamInput.value = selectedMember.team;
+  addOrUpdateButton.value = "Update";
+};
 
 const getRowHTML = (mem) => {
   return `
@@ -64,18 +81,14 @@ const getRowHTML = (mem) => {
         <td>${mem.fullname}</td>
         <td>${mem.team}</td>
         <td class="edit_col">
-          <div class="d-flex aligin-items-center">
-          <button id="edit_btn" onclick="editRow(event)">
+          <button id="edit_btn" onclick="editRow(event)" mem-username="${mem.username}">
           <i class="fa fa-edit"></i>
           </button>
-          </div>
         </td>
         <td class="delete_col">
-        <div class="d-flex aligin-items-center">
-          <button class="delete_btn" onclick="deleteRow(event)">
+          <button class="delete_btn" onclick="deleteRow(event)" mem-username="${mem.username}">
           <i class="fa fa-trash-o"></i>
           </button>
-          </div>
         </td>
       </tr>
   `;

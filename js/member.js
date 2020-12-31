@@ -92,11 +92,11 @@ var addMember = () => {
     teamCell.innerHTML = teamValue;
 
     editCell.className = "table-bordered";
-    var editBtn = document.createElement("input");
-    editBtn.type = "button";
-    editBtn.value = "Edit";
+    var editBtn = document.createElement("button");
+    const editIcon = document.createElement("i");
+    editIcon.className = "fa fa-edit";
+    editBtn.appendChild(editIcon);
     editBtn.id = "edit_btn";
-    editBtn.className = "delete_btn";
     editBtn.setAttribute("onclick", "editRow(event)");
     editCell.appendChild(editBtn);
 
@@ -107,9 +107,9 @@ var addMember = () => {
     delIcon.className = "fa fa-trash-o";
     deleteBtn.appendChild(delIcon);
 
-    const delText = document.createElement("span");
-    delText.innerHTML = "&nbsp;Delete";
-    deleteBtn.appendChild(delText);
+    // const delText = document.createElement("span");
+    // delText.innerHTML = "&nbsp;Delete";
+    // deleteBtn.appendChild(delText);
 
     deleteBtn.className = "delete_btn";
     deleteBtn.setAttribute("onclick", "deleteRow(event)");
