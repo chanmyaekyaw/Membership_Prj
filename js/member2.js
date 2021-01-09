@@ -39,6 +39,7 @@ function username_validation() {
       "Only Alphabets, Numbers and Underscore and between 6 to 20 characters!";
     userInput.classList.add("is-invalid");
     userInput.classList.remove("is-valid");
+    userInput.style.boxShadow = "none";
   } else if (expr.test(usernameValue)) {
     userInput.classList.remove("is-invalid");
   } else {
@@ -59,6 +60,7 @@ function name_validation() {
     name_warning.innerHTML = "Only letters with space!";
     nameInput.classList.add("is-invalid");
     nameInput.classList.remove("is-valid");
+    nameInput.style.boxShadow = "none";
   } else if (expr.test(nameValue)) {
     nameInput.classList.remove("is-invalid");
   } else {

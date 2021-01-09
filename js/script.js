@@ -16,6 +16,7 @@ function username_validation() {
     username.classList.add("form-control");
     username.classList.add("is-invalid");
     username.classList.remove("is-valid");
+    username.style.boxShadow = "none";
   } else if (expr.test(usernameValue)) {
     username.classList.add("form-control");
     username.classList.add("is-valid");
@@ -42,6 +43,7 @@ function pw_validation() {
     password.classList.add("form-control");
     password.classList.add("is-invalid");
     password.classList.remove("is-valid");
+    password.style.boxShadow = "none";
   } else if (expr.test(passwordValue)) {
     password.classList.add("form-control");
     password.classList.add("is-valid");
@@ -51,5 +53,5 @@ function pw_validation() {
 }
 
 document.getElementById("login").onclick = function () {
-  location.href = "member.html";
+  location.href = "member2.html";
 };

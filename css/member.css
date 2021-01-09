@@ -14,13 +14,15 @@
   border-radius: 10px;
   border-color: yellowgreen;
   height: 50px;
+  box-shadow: none;
 }
 .member_content .select {
   border-radius: 10px;
-  border-color: yellowgreen;
+  border-color: yellowgreen !important;
   height: 50px;
   font-size: 20px;
   color: #7b7b7b;
+  box-shadow: none !important;
 }
 
 .member_content .btn-add {
